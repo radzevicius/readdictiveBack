@@ -1,6 +1,7 @@
 package com.radsoft.readdictive.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="challenges")
@@ -24,16 +25,26 @@ public class Challenge {
     String userIds;
 
     @Column(name="creator_id")
-    String creatorId;
+    Long creatorId;
+
+    @Column(name="deadline_date")
+    @Temporal(value=TemporalType.TIMESTAMP)
+    Date deadlineDate;
+
+    @Column(name="started_date")
+    @Temporal(value =TemporalType.TIMESTAMP)
+    Date startedDate;
 
     public Challenge(){ }
 
-    public Challenge(String name, String description, String bookIds, String userIds, String creatorId){
+    public Challenge(String name, String description, String bookIds, String userIds, Long creatorId, Date deadlineDate,Date startedDate){
         this.name = name;
         this.description = description;
         this.bookIds = bookIds;
         this.userIds = userIds;
         this.creatorId =creatorId;
+        this.deadlineDate =deadlineDate;
+        this.startedDate =startedDate;
     }
 
     public Long getId() {
@@ -56,7 +67,15 @@ public class Challenge {
         return userIds;
     }
 
-    public String getCreatorId() {
+    public Long getCreatorId() {
         return creatorId;
+    }
+
+    public Date getDeadlineDate() {
+        return deadlineDate;
+    }
+
+    public Date getStartedDate() {
+        return startedDate;
     }
 }

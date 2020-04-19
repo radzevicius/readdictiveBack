@@ -9,30 +9,23 @@ public class BookModel {
 
     private String author;
 
-    private int  pageCount;
+    private Long pageCount;
 
     private String description;
 
     private String imageURL;
 
-    private String goodReadsURL;
+    private String goodreadsUrl;
 
-    private String isbn;
+    private Long isbn;
 
-    public BookModel(String title, String author, int pageCount, String description){
-        this.title = title;
-        this.author = author;
-        this.pageCount = pageCount;
-        this.description = description;
-    }
+    private String genre;
 
-    public BookModel(){}
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -52,11 +45,11 @@ public class BookModel {
         this.author = author;
     }
 
-    public int getPageCount() {
+    public Long getPageCount() {
         return pageCount;
     }
 
-    public void setPageCount(int pageCount) {
+    public void setPageCount(Long pageCount) {
         this.pageCount = pageCount;
     }
 
@@ -76,20 +69,28 @@ public class BookModel {
         this.imageURL = imageURL;
     }
 
-    public String getGoodReadsURL() {
-        return goodReadsURL;
+    public String getGoodreadsUrl() {
+        return goodreadsUrl;
     }
 
-    public void setGoodReadsURL(String goodReadsURL) {
-        this.goodReadsURL = goodReadsURL;
+    public void setGoodreadsUrl(String goodreadsUrl) {
+        this.goodreadsUrl = goodreadsUrl;
     }
 
-    public String getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public static Book toInternal(BookModel bookModel){
@@ -99,8 +100,9 @@ public class BookModel {
                 bookModel.getPageCount(),
                 bookModel.getDescription(),
                 bookModel.getImageURL(),
-                bookModel.getGoodReadsURL(),
-                bookModel.getIsbn()));
+                bookModel.getGoodreadsUrl(),
+                bookModel.getIsbn(),
+                bookModel.getGenre()));
     }
 
     public static BookModel toExternal(Book book){
@@ -109,10 +111,13 @@ public class BookModel {
         bookModel.setDescription(book.getDescription());
         bookModel.setPageCount(book.getPageCount());
         bookModel.setTitle(book.getTitle());
-        bookModel.setGoodReadsURL(book.getGoodReadsURL());
+        bookModel.setGoodreadsUrl(book.getGoodReadsUrl());
         bookModel.setImageURL(book.getImageURL());
         bookModel.setIsbn(book.getIsbn());
         bookModel.setId(book.getId());
+        bookModel.setGenre(book.getGenre());
         return bookModel;
     }
+
+
 }

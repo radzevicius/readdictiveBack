@@ -18,7 +18,7 @@ public class Book {
     private String author;
 
     @Column(name ="page_count")
-    private int  pageCount;
+    private Long  pageCount;
 
     @Column(name="description")
     private String description;
@@ -27,37 +27,25 @@ public class Book {
     private String imageURL;
 
     @Column(name = "goodreads_url")
-    private String goodReadsURL;
+    private String goodreadsUrl;
 
     @Column(name ="isbn")
-    private String isbn;
+    private Long isbn;
+
+    @Column(name="genre")
+    private String genre;
 
     public  Book(){ }
 
-    public Book(String title, String author, int pageCount, String description, String imageURL, String goodReadsURL, String isbn){
+    public Book(String title, String author, Long pageCount, String description, String imageURL, String goodreadsURL, Long isbn, String genre){
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
         this.description = description;
         this.imageURL = imageURL;
-        this.goodReadsURL =goodReadsURL;
+        this.goodreadsUrl =goodreadsURL;
         this.isbn = isbn;
-    }
-
-    public void setTitle(String title){
-        this.title = title;
-    }
-
-    public void setAuthor(String author){
-        this.author = author;
-    }
-
-    public void setPageCount (int pageCount){
-        this.pageCount = pageCount;
-    }
-
-    public void setDescription(String description){
-        this.description = description;
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -72,7 +60,7 @@ public class Book {
         return author;
     }
 
-    public int getPageCount() {
+    public Long getPageCount() {
         return pageCount;
     }
 
@@ -84,11 +72,15 @@ public class Book {
         return imageURL;
     }
 
-    public String getGoodReadsURL() {
-        return goodReadsURL;
+    public String getGoodReadsUrl() {
+        return goodreadsUrl;
     }
 
-    public String getIsbn() {
+    public Long getIsbn() {
         return isbn;
+    }
+
+    public String getGenre() {
+        return genre;
     }
 }

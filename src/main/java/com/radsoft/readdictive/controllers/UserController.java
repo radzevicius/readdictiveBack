@@ -1,5 +1,6 @@
 package com.radsoft.readdictive.controllers;
 
+import com.radsoft.readdictive.controllers.models.UserListModel;
 import com.radsoft.readdictive.controllers.models.UserModel;
 import com.radsoft.readdictive.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class UserController {
     @GetMapping("/id/{id}")
     public UserModel searchUserById(@PathVariable("id") Long id){
         return UserModel.toExternal(userService.getUserById(id));
+    }
+
+    @GetMapping("/role/{role}")
+    public UserListModel searchUserByRole(@PathVariable("role") String role){
+        return UserListModel.toExternal(userService.getUsersByRole(role));
     }
 }

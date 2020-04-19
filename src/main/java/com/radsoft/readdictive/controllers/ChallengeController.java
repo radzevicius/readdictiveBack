@@ -1,10 +1,10 @@
 package com.radsoft.readdictive.controllers;
 
+import com.radsoft.readdictive.controllers.models.ChallengeModel;
+import com.radsoft.readdictive.entities.Challenge;
 import com.radsoft.readdictive.services.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/challenge")
@@ -14,5 +14,14 @@ public class ChallengeController {
     @Autowired
     ChallengeService challengeService;
 
+    @PostMapping("/create")
+    public void createChallenge(@RequestBody ChallengeModel challenge){
+        challengeService.createChallenge(ChallengeModel.toInternal(challenge));
+    }
+
+    @GetMapping("/id/{id}")
+    public ChallengeModel searchChallengeId(@PathVariable("id") Long id){
+        return ChallengeModel.toExternal(challengeService.getChallengeById(id));
+    }
 
 }

@@ -2,14 +2,17 @@ package com.radsoft.readdictive.controllers.models;
 
 import com.radsoft.readdictive.entities.User;
 
+import java.util.Date;
+
 public class UserModel {
 
-    Long Id;
-    String nickname;
-    String description;
-    String role;
-    String createdChallengesIds;
-    String memberOfChallengesIds;
+    private Long Id;
+    private String nickname;
+    private String description;
+    private String role;
+    private String avatarImageUrl;
+    private Date joinedDate;
+    private String completedBooksIds;
 
     public Long getId() {
         return Id;
@@ -39,43 +42,49 @@ public class UserModel {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(String role) { this.role = role; }
+
+    public String getAvatarImageUrl() {
+        return avatarImageUrl;
     }
 
-    public String getCreatedChallengesIds() {
-        return createdChallengesIds;
+    public void setAvatarImageUrl(String avatarImageUrl) {
+        this.avatarImageUrl = avatarImageUrl;
     }
 
-    public void setCreatedChallengesIds(String createdChallengesIds) {
-        this.createdChallengesIds = createdChallengesIds;
+    public Date getJoinedDate() {
+        return joinedDate;
     }
 
-    public String getMemberOfChallengesIds() {
-        return memberOfChallengesIds;
+    public void setJoinedDate(Date joinedDate) {
+        this.joinedDate = joinedDate;
     }
 
-    public void setMemberOfChallengesIds(String memberOfChallengesIds) {
-        this.memberOfChallengesIds = memberOfChallengesIds;
-    }
+    public String getCompletedBooksIds() { return completedBooksIds; }
+
+    public void setCompletedBooksIds(String completedBooksIds) { this.completedBooksIds = completedBooksIds; }
 
     public static UserModel toExternal(User user){
         UserModel userModel = new UserModel();
         userModel.setId(user.getId());
-        userModel.setCreatedChallengesIds(user.getCreatedChallengesIds());
         userModel.setDescription(user.getDescription());
-        userModel.setMemberOfChallengesIds(user.getMemberOfChallengesIds());
         userModel.setNickname(user.getNickname());
         userModel.setRole(user.getRole());
+        userModel.setAvatarImageUrl(user.getAvatarImageUrl());
+        userModel.setJoinedDate(user.getJoinedDate());
+        userModel.setCompletedBooksIds(user.getCompletedBooksIds());
         return userModel;
     }
 
     public static User toInternal(UserModel userModel){
         return new User(
-                userModel.nickname,
-                userModel.description,
-                userModel.role,
-                userModel.createdChallengesIds,
-                userModel.memberOfChallengesIds);
+                userModel.getNickname(),
+                userModel.getDescription(),
+                userModel.getRole(),
+                userModel.getAvatarImageUrl(),
+                userModel.getJoinedDate(),
+                userModel.getCompletedBooksIds());
     }
+
+
 }

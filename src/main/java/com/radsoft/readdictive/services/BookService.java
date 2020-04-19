@@ -22,7 +22,7 @@ public class BookService {
         return bookRepository.findById(id).get();
     }
 
-    public Book getBookByIsbn(String isbn){
+    public Book getBookByIsbn(Long isbn){
         return bookRepository.findByIsbn(isbn);
     }
 

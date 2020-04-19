@@ -2,6 +2,8 @@ package com.radsoft.readdictive.controllers.models;
 
 import com.radsoft.readdictive.entities.Challenge;
 
+import java.util.Date;
+
 public class ChallengeModel {
 
     Long Id;
@@ -9,7 +11,9 @@ public class ChallengeModel {
     String description;
     String bookIds;
     String userIds;
-    String creatorId;
+    Long creatorId;
+    Date deadlineDate;
+    Date startedDate;
 
     public Long getId() {
         return Id;
@@ -51,12 +55,24 @@ public class ChallengeModel {
         this.userIds = userIds;
     }
 
-    public String getCreatorId() {
+    public Long getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setCreatorId(Long creatorId) { this.creatorId = creatorId; }
+
+    public Date getDeadlineDate() { return deadlineDate; }
+
+    public void setDeadlineDate(Date deadlineDate) {
+        this.deadlineDate = deadlineDate;
+    }
+
+    public Date getStartedDate() {
+        return startedDate;
+    }
+
+    public void setStartedDate(Date startedDate) {
+        this.startedDate = startedDate;
     }
 
     public static ChallengeModel toExternal(Challenge challenge){
@@ -67,15 +83,21 @@ public class ChallengeModel {
         challengeModel.setId(challenge.getId());
         challengeModel.setName(challenge.getName());
         challengeModel.setUserIds(challenge.getUserIds());
+        challengeModel.setDeadlineDate(challenge.getDeadlineDate());
+        challengeModel.setStartedDate(challenge.getStartedDate());
         return challengeModel;
     }
 
     public static Challenge toInternal(ChallengeModel challengeModel){
         return new Challenge(
-                challengeModel.name,
-                challengeModel.description,
-                challengeModel.bookIds,
-                challengeModel.userIds,
-                challengeModel.creatorId);
+                challengeModel.getName(),
+                challengeModel.getDescription(),
+                challengeModel.getBookIds(),
+                challengeModel.getUserIds(),
+                challengeModel.getCreatorId(),
+                challengeModel.getDeadlineDate(),
+                challengeModel.getStartedDate());
     }
+
+
 }

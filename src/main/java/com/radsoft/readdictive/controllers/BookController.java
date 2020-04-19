@@ -30,7 +30,7 @@ public class BookController {
     }
 
     @GetMapping("/isbn/{isbn}")
-    public BookModel searchBookIsbn(@PathVariable("isbn") String isbn) throws Exception{
+    public BookModel searchBookIsbn(@PathVariable("isbn") Long isbn) throws Exception{
         return BookModel.toExternal(bookService.getBookByIsbn(isbn));
     }
 

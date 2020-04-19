@@ -1,6 +1,7 @@
 package com.radsoft.readdictive.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="users")
@@ -20,21 +21,15 @@ public class User {
     @Column(name="role")
     String role;
 
-    @Column(name="created_challenges_ids")
-    String createdChallengesIds;
+    @Column(name="avatar_image_url")
+    String avatarImageUrl;
 
-    @Column(name="member_of_challenges_ids")
-    String memberOfChallengesIds;
+    @Column(name="joined_date")
+    @Temporal(value= TemporalType.TIMESTAMP)
+    Date joinedDate;
 
-    public User(){}
-
-    public User(String nickname, String description, String role, String createdChallengesIds, String memberOfChallengesIds){
-        this.nickname = nickname;
-        this.description = description;
-        this.role = role;
-        this.createdChallengesIds = createdChallengesIds;
-        this.memberOfChallengesIds = memberOfChallengesIds;
-    }
+    @Column(name="completed_books_ids")
+    String completedBooksIds;
 
     public Long getId() {
         return Id;
@@ -48,15 +43,30 @@ public class User {
         return description;
     }
 
-    public String getRole() {
-        return role;
+    public String getRole() { return role; }
+
+    public String getAvatarImageUrl() {
+        return avatarImageUrl;
     }
 
-    public String getCreatedChallengesIds() {
-        return createdChallengesIds;
+    public Date getJoinedDate() {
+        return joinedDate;
     }
 
-    public String getMemberOfChallengesIds() {
-        return memberOfChallengesIds;
+    public String getCompletedBooksIds() {
+        return completedBooksIds;
     }
+
+    public User(){}
+
+    public User(String nickname, String description, String role,String avatarImageUrl,Date joinedDate,String completedBooksIds){
+        this.nickname = nickname;
+        this.description = description;
+        this.role = role;
+        this.avatarImageUrl =avatarImageUrl;
+        this.joinedDate = joinedDate;
+        this.completedBooksIds = completedBooksIds;
+    }
+
+
 }
