@@ -5,6 +5,8 @@ import com.radsoft.readdictive.repositories.ChallengeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ChallengeService {
 
@@ -18,6 +20,21 @@ public class ChallengeService {
     public Challenge getChallengeById(Long id){
         return challengeRepository.findById(id).get();
     }
+
+    public List<Challenge> getChallengesByName(String name){
+        return challengeRepository.findByNameContaining(name);
+
+    }
+
+    public List<Challenge> getChallengesAll(){
+        return challengeRepository.findAll();
+    }
+
+    public void deleteChallengeId(Long id){
+        challengeRepository.deleteById(id);
+    }
+
+    public void updateChallengeId()
 
 
 }

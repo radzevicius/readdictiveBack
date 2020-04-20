@@ -13,7 +13,7 @@ public class BookListModel {
         this.books =books;
     }
 
-    public  List<BookModel> getBookModelList(){
+    public  List<BookModel> getBookListModel(){
         return books;
     }
 
