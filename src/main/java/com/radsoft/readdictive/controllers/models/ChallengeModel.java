@@ -101,5 +101,10 @@ public class ChallengeModel {
                 .build();
     }
 
+    public static ChallengeModel resetId(ChallengeModel challengeModel){
+        challengeModel.setId(null);
+        return challengeModel;
+    }
+
 
 }

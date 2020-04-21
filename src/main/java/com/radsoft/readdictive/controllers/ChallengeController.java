@@ -16,8 +16,8 @@ public class ChallengeController {
     ChallengeService challengeService;
 
     @PostMapping("/create")
-    public void createChallenge(@RequestBody ChallengeModel challenge){
-        challengeService.createChallenge(ChallengeModel.toInternal(challenge));
+    public void createChallenge(@RequestBody ChallengeModel challengeModel){
+        challengeService.createChallenge(ChallengeModel.toInternal(ChallengeModel.resetId(challengeModel)));
     }
 
     @GetMapping("/id/{id}")
@@ -40,6 +40,9 @@ public class ChallengeController {
         challengeService.deleteChallengeId(id);
     }
 
-
+    @PutMapping("/update")
+    public void updateChallenge(@RequestBody ChallengeModel challengeModel){
+        challengeService.createChallenge(ChallengeModel.toInternal(challengeModel));
+    }
 
 }
