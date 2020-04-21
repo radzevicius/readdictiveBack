@@ -34,7 +34,9 @@ public class ChallengeService {
         challengeRepository.deleteById(id);
     }
 
-    public void updateChallengeId()
+    public void updateChallengeId(Long id, Challenge challenge) {
+        Challenge challengeToUpdate = getChallengeById(id);
+    }
 
 
 }

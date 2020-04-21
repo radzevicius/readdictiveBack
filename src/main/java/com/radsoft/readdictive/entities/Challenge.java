@@ -10,7 +10,7 @@ public class Challenge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Id")
-    Long Id;
+    Long id;
 
     @Column(name="name")
     String name;
@@ -35,20 +35,78 @@ public class Challenge {
     @Temporal(value =TemporalType.TIMESTAMP)
     Date startedDate;
 
+    public static class ChallengeBuilder{
+        Long id;
+        String name;
+        String description;
+        String bookIds;
+        String userIds;
+        Long creatorId;
+        Date deadlineDate;
+        Date startedDate;
+
+        public ChallengeBuilder(){}
+
+        public ChallengeBuilder id(Long id){
+            this.id  = id;
+            return this;
+        }
+
+        public ChallengeBuilder name (String name){
+            this.name = name;
+            return this;
+        }
+
+        public ChallengeBuilder description (String description){
+            this.description =  description;
+            return this;
+        }
+
+        public ChallengeBuilder bookIds(String bookIds){
+            this.bookIds = bookIds;
+            return this;
+        }
+
+        public ChallengeBuilder userIds(String userIds){
+            this.userIds = userIds;
+            return this;
+        }
+
+        public ChallengeBuilder creatorId(Long creatorId){
+            this.creatorId = creatorId;
+            return this;
+        }
+
+        public ChallengeBuilder deadlineDate(Date deadlineDate){
+            this.deadlineDate = deadlineDate;
+            return this;
+        }
+
+        public ChallengeBuilder startedDate(Date startedDate){
+            this.startedDate =  startedDate;
+            return this;
+        }
+
+        public Challenge build(){
+            return new Challenge(this);
+        }
+    }
+
     public Challenge(){ }
 
-    public Challenge(String name, String description, String bookIds, String userIds, Long creatorId, Date deadlineDate,Date startedDate){
-        this.name = name;
-        this.description = description;
-        this.bookIds = bookIds;
-        this.userIds = userIds;
-        this.creatorId =creatorId;
-        this.deadlineDate =deadlineDate;
-        this.startedDate =startedDate;
+    public Challenge(ChallengeBuilder challengeBuilder){
+        this.id = challengeBuilder.id;
+        this.name = challengeBuilder.name;
+        this.description = challengeBuilder.description;
+        this.bookIds = challengeBuilder.bookIds;
+        this.userIds = challengeBuilder.userIds;
+        this.creatorId = challengeBuilder.creatorId;
+        this.deadlineDate = challengeBuilder.deadlineDate;
+        this.startedDate = challengeBuilder.startedDate;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getName() {

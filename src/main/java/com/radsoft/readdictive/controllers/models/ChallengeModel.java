@@ -89,14 +89,16 @@ public class ChallengeModel {
     }
 
     public static Challenge toInternal(ChallengeModel challengeModel){
-        return new Challenge(
-                challengeModel.getName(),
-                challengeModel.getDescription(),
-                challengeModel.getBookIds(),
-                challengeModel.getUserIds(),
-                challengeModel.getCreatorId(),
-                challengeModel.getDeadlineDate(),
-                challengeModel.getStartedDate());
+        return new Challenge.ChallengeBuilder()
+                .id(challengeModel.getId())
+                .name(challengeModel.getName())
+                .description(challengeModel.getDescription())
+                .bookIds(challengeModel.getBookIds())
+                .userIds(challengeModel.getUserIds())
+                .creatorId(challengeModel.getCreatorId())
+                .deadlineDate(challengeModel.getDeadlineDate())
+                .startedDate(challengeModel.getStartedDate())
+                .build();
     }
 
 
