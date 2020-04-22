@@ -82,14 +82,15 @@ public class ReviewModel {
     }
 
     public static Review toInternal(ReviewModel reviewModel){
-        return  new Review(
-                reviewModel.getReviewTitle(),
-                reviewModel.getReviewText(),
-                reviewModel.getReviewerId(),
-                reviewModel.getReviewScore(),
-                reviewModel.getBookId(),
-                reviewModel.getCreatedDate()
-        );
+        return  new Review.ReviewBuilder()
+                .withId(reviewModel.getId())
+                .withReviewTitle(reviewModel.getReviewTitle())
+                .withReviewText(reviewModel.getReviewText())
+                .withReviewScore(reviewModel.getReviewScore())
+                .withReviewerId(reviewModel.getReviewerId())
+                .withBookId(reviewModel.getBookId())
+                .withCreatedDate(reviewModel.getCreatedDate())
+                .build();
     }
 
 

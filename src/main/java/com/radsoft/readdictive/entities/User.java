@@ -10,7 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    Long Id;
+    Long id;
 
     @Column(name="nickname")
     String nickname;
@@ -31,8 +31,70 @@ public class User {
     @Column(name="completed_books_ids")
     String completedBooksIds;
 
+    public static class UserBuilder{
+
+        Long id;
+        String nickname;
+        String description;
+        String role;
+        String avatarImageUrl;
+        Date joinedDate;
+        String completedBooksIds;
+
+        public UserBuilder withId(Long id){
+            this.id = id;
+            return this;
+        }
+
+        public UserBuilder withNickname(String nickname){
+            this.nickname = nickname;
+            return this;
+        }
+
+        public  UserBuilder withDescription(String description){
+            this.description = description;
+            return this;
+        }
+
+        public UserBuilder withRole(String role){
+            this.role = role;
+            return this;
+        }
+
+        public UserBuilder withAvatarImageUrl(String avatarImageUrl){
+            this.avatarImageUrl = avatarImageUrl;
+            return this;
+        }
+
+        public UserBuilder withJoinedDate(Date joinedDate){
+            this.joinedDate = joinedDate;
+            return this;
+        }
+
+        public UserBuilder withCompletedBooksIds(String completedBooksIds){
+            this.completedBooksIds = completedBooksIds;
+            return this;
+        }
+
+        public User build(){
+            return new User(this);
+        }
+    }
+
+    public User(){}
+
+    public User(UserBuilder userBuilder){
+        this.id = userBuilder.id;
+        this.nickname = userBuilder.nickname;
+        this.description = userBuilder.description;
+        this.role = userBuilder.role;
+        this.avatarImageUrl = userBuilder.avatarImageUrl;
+        this.joinedDate = userBuilder.joinedDate;
+        this.completedBooksIds = userBuilder.completedBooksIds;
+    }
+
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getNickname() {
@@ -56,17 +118,5 @@ public class User {
     public String getCompletedBooksIds() {
         return completedBooksIds;
     }
-
-    public User(){}
-
-    public User(String nickname, String description, String role,String avatarImageUrl,Date joinedDate,String completedBooksIds){
-        this.nickname = nickname;
-        this.description = description;
-        this.role = role;
-        this.avatarImageUrl =avatarImageUrl;
-        this.joinedDate = joinedDate;
-        this.completedBooksIds = completedBooksIds;
-    }
-
 
 }

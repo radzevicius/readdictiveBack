@@ -47,42 +47,42 @@ public class Challenge {
 
         public ChallengeBuilder(){}
 
-        public ChallengeBuilder id(Long id){
+        public ChallengeBuilder withId(Long id){
             this.id  = id;
             return this;
         }
 
-        public ChallengeBuilder name (String name){
+        public ChallengeBuilder withName (String name){
             this.name = name;
             return this;
         }
 
-        public ChallengeBuilder description (String description){
+        public ChallengeBuilder withDescription (String description){
             this.description =  description;
             return this;
         }
 
-        public ChallengeBuilder bookIds(String bookIds){
+        public ChallengeBuilder withBookIds(String bookIds){
             this.bookIds = bookIds;
             return this;
         }
 
-        public ChallengeBuilder userIds(String userIds){
+        public ChallengeBuilder withUserIds(String userIds){
             this.userIds = userIds;
             return this;
         }
 
-        public ChallengeBuilder creatorId(Long creatorId){
+        public ChallengeBuilder withCreatorId(Long creatorId){
             this.creatorId = creatorId;
             return this;
         }
 
-        public ChallengeBuilder deadlineDate(Date deadlineDate){
+        public ChallengeBuilder withDeadlineDate(Date deadlineDate){
             this.deadlineDate = deadlineDate;
             return this;
         }
 
-        public ChallengeBuilder startedDate(Date startedDate){
+        public ChallengeBuilder withStartedDate(Date startedDate){
             this.startedDate =  startedDate;
             return this;
         }
@@ -97,8 +97,6 @@ public class Challenge {
     public Challenge(ChallengeBuilder challengeBuilder){
         this.id = challengeBuilder.id;
         this.name = challengeBuilder.name;
-        this.description = challengeBuilder.description;
-        this.bookIds = challengeBuilder.bookIds;
         this.userIds = challengeBuilder.userIds;
         this.creatorId = challengeBuilder.creatorId;
         this.deadlineDate = challengeBuilder.deadlineDate;

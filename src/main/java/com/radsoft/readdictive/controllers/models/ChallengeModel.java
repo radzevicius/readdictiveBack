@@ -90,14 +90,14 @@ public class ChallengeModel {
 
     public static Challenge toInternal(ChallengeModel challengeModel){
         return new Challenge.ChallengeBuilder()
-                .id(challengeModel.getId())
-                .name(challengeModel.getName())
-                .description(challengeModel.getDescription())
-                .bookIds(challengeModel.getBookIds())
-                .userIds(challengeModel.getUserIds())
-                .creatorId(challengeModel.getCreatorId())
-                .deadlineDate(challengeModel.getDeadlineDate())
-                .startedDate(challengeModel.getStartedDate())
+                .withId(challengeModel.getId())
+                .withName(challengeModel.getName())
+                .withDescription(challengeModel.getDescription())
+                .withBookIds(challengeModel.getBookIds())
+                .withUserIds(challengeModel.getUserIds())
+                .withCreatorId(challengeModel.getCreatorId())
+                .withDeadlineDate(challengeModel.getDeadlineDate())
+                .withStartedDate(challengeModel.getStartedDate())
                 .build();
     }
 

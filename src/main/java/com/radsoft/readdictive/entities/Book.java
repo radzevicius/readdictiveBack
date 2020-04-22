@@ -35,17 +35,79 @@ public class Book {
     @Column(name="genre")
     private String genre;
 
-    public  Book(){ }
+    public static class BookBuilder{
+        Long id;
+        String title;
+        String author;
+        Long pageCount;
+        String description;
+        String imageUrl;
+        String goodreadsUrl;
+        Long isbn;
+        String genre;
 
-    public Book(String title, String author, Long pageCount, String description, String imageURL, String goodreadsURL, Long isbn, String genre){
-        this.title = title;
-        this.author = author;
-        this.pageCount = pageCount;
-        this.description = description;
-        this.imageURL = imageURL;
-        this.goodreadsUrl =goodreadsURL;
-        this.isbn = isbn;
-        this.genre = genre;
+        public BookBuilder withId(Long id){
+            this.id = id;
+            return this;
+        }
+
+        public BookBuilder withTitle(String title){
+            this.title = title;
+            return this;
+        }
+
+        public BookBuilder withAuthor(String author){
+            this.author = author;
+            return this;
+        }
+
+        public BookBuilder withPageCount(Long pageCount){
+            this.pageCount = pageCount;
+            return this;
+        }
+
+        public BookBuilder withDescription(String description){
+            this.description = description;
+            return this;
+        }
+
+        public BookBuilder withImageUrl (String imageUrl){
+            this.imageUrl = imageUrl;
+            return this;
+        }
+
+        public BookBuilder withGoodreadsUrl(String goodreadsUrl){
+            this.goodreadsUrl = goodreadsUrl;
+            return this;
+        }
+
+        public BookBuilder withIsbn(Long isbn){
+            this.isbn = isbn;
+            return this;
+        }
+
+        public BookBuilder withGenre(String genre){
+            this.genre =genre;
+            return this;
+        }
+
+        public Book build(){
+            return new Book(this);
+        }
+    }
+
+    public Book(){ }
+
+    public Book(BookBuilder bookBuilder){
+        this.id = bookBuilder.id;
+        this.genre= bookBuilder.genre;
+        this.isbn = bookBuilder.isbn;
+        this.imageURL = bookBuilder.imageUrl;
+        this.description = bookBuilder.description;
+        this.pageCount = bookBuilder.pageCount;
+        this.author = bookBuilder.author;
+        this.title = bookBuilder.title;
+        this.goodreadsUrl = bookBuilder.goodreadsUrl;
     }
 
     public Long getId() {

@@ -94,15 +94,17 @@ public class BookModel {
     }
 
     public static Book toInternal(BookModel bookModel){
-        return (new Book(
-                bookModel.getTitle(),
-                bookModel.getAuthor(),
-                bookModel.getPageCount(),
-                bookModel.getDescription(),
-                bookModel.getImageURL(),
-                bookModel.getGoodreadsUrl(),
-                bookModel.getIsbn(),
-                bookModel.getGenre()));
+        return new Book.BookBuilder()
+                .withId(bookModel.getId())
+                .withTitle(bookModel.getTitle())
+                .withAuthor(bookModel.getAuthor())
+                .withPageCount(bookModel.getPageCount())
+                .withDescription(bookModel.getDescription())
+                .withImageUrl(bookModel.getImageURL())
+                .withGoodreadsUrl(bookModel.getGoodreadsUrl())
+                .withIsbn(bookModel.getIsbn())
+                .withGenre(bookModel.getGenre())
+                .build();
     }
 
     public static BookModel toExternal(Book book){

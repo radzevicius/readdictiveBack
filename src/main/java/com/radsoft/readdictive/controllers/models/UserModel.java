@@ -77,13 +77,15 @@ public class UserModel {
     }
 
     public static User toInternal(UserModel userModel){
-        return new User(
-                userModel.getNickname(),
-                userModel.getDescription(),
-                userModel.getRole(),
-                userModel.getAvatarImageUrl(),
-                userModel.getJoinedDate(),
-                userModel.getCompletedBooksIds());
+        return new User.UserBuilder()
+                .withId(userModel.getId())
+                .withRole(userModel.getRole())
+                .withNickname(userModel.getNickname())
+                .withJoinedDate(userModel.getJoinedDate())
+                .withDescription(userModel.getDescription())
+                .withCompletedBooksIds(userModel.getCompletedBooksIds())
+                .withAvatarImageUrl(userModel.getAvatarImageUrl())
+                .build();
     }
 
 
