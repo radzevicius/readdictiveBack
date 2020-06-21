@@ -28,9 +28,6 @@ public class User {
     @Temporal(value= TemporalType.TIMESTAMP)
     Date joinedDate;
 
-    @Column(name="completed_books_ids")
-    String completedBooksIds;
-
     public static class UserBuilder{
 
         Long id;
@@ -39,7 +36,6 @@ public class User {
         String role;
         String avatarImageUrl;
         Date joinedDate;
-        String completedBooksIds;
 
         public UserBuilder withId(Long id){
             this.id = id;
@@ -71,11 +67,6 @@ public class User {
             return this;
         }
 
-        public UserBuilder withCompletedBooksIds(String completedBooksIds){
-            this.completedBooksIds = completedBooksIds;
-            return this;
-        }
-
         public User build(){
             return new User(this);
         }
@@ -90,7 +81,6 @@ public class User {
         this.role = userBuilder.role;
         this.avatarImageUrl = userBuilder.avatarImageUrl;
         this.joinedDate = userBuilder.joinedDate;
-        this.completedBooksIds = userBuilder.completedBooksIds;
     }
 
     public Long getId() {
@@ -113,10 +103,6 @@ public class User {
 
     public Date getJoinedDate() {
         return joinedDate;
-    }
-
-    public String getCompletedBooksIds() {
-        return completedBooksIds;
     }
 
 }

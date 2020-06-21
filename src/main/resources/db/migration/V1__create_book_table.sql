@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 CREATE TABLE books (
     id SERIAL PRIMARY KEY ,
     title VARCHAR(255),
@@ -28,7 +30,6 @@ CREATE TABLE users(
     role VARCHAR(255),
     avatar_image_url VARCHAR(255),
     joined_date TIMESTAMP ,
-    completed_books_ids VARCHAR(255)
 );
 
 CREATE  TABLE reviews(
@@ -39,4 +40,10 @@ CREATE  TABLE reviews(
     review_score INTEGER ,
     book_id INTEGER ,
     created_date TIMESTAMP
+)
+
+CREATE TABLE completed_books(
+    id SERIAL PRIMARY KEY,
+    userId INTEGER,
+    bookId INTEGER
 )

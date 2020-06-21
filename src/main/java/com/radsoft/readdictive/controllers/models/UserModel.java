@@ -12,7 +12,6 @@ public class UserModel {
     private String role;
     private String avatarImageUrl;
     private Date joinedDate;
-    private String completedBooksIds;
 
     public Long getId() {
         return Id;
@@ -60,10 +59,6 @@ public class UserModel {
         this.joinedDate = joinedDate;
     }
 
-    public String getCompletedBooksIds() { return completedBooksIds; }
-
-    public void setCompletedBooksIds(String completedBooksIds) { this.completedBooksIds = completedBooksIds; }
-
     public static UserModel toExternal(User user){
         UserModel userModel = new UserModel();
         userModel.setId(user.getId());
@@ -72,7 +67,6 @@ public class UserModel {
         userModel.setRole(user.getRole());
         userModel.setAvatarImageUrl(user.getAvatarImageUrl());
         userModel.setJoinedDate(user.getJoinedDate());
-        userModel.setCompletedBooksIds(user.getCompletedBooksIds());
         return userModel;
     }
 
@@ -83,7 +77,6 @@ public class UserModel {
                 .withNickname(userModel.getNickname())
                 .withJoinedDate(userModel.getJoinedDate())
                 .withDescription(userModel.getDescription())
-                .withCompletedBooksIds(userModel.getCompletedBooksIds())
                 .withAvatarImageUrl(userModel.getAvatarImageUrl())
                 .build();
     }
