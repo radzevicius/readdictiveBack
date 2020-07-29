@@ -16,8 +16,6 @@ CREATE TABLE challenges(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description TEXT,
-    book_ids VARCHAR(255),
-    user_ids VARCHAR(255),
     creator_id INTEGER ,
     deadline_date TIMESTAMP ,
     started_date TIMESTAMP
@@ -29,7 +27,7 @@ CREATE TABLE users(
     description TEXT,
     role VARCHAR(255),
     avatar_image_url VARCHAR(255),
-    joined_date TIMESTAMP ,
+    joined_date TIMESTAMP
 );
 
 CREATE  TABLE reviews(
@@ -40,10 +38,22 @@ CREATE  TABLE reviews(
     review_score INTEGER ,
     book_id INTEGER ,
     created_date TIMESTAMP
-)
+);
 
 CREATE TABLE completed_books(
     id SERIAL PRIMARY KEY,
     userId INTEGER,
     bookId INTEGER
-)
+);
+
+CREATE TABLE challenge_books(
+    id SERIAL PRIMARY KEY,
+    challengeId INTEGER,
+    bookId INTEGER
+);
+
+CREATE TABLE challenge_users(
+    id SERIAL PRIMARY KEY,
+    challengeId INTEGER,
+    userId INTEGER
+);

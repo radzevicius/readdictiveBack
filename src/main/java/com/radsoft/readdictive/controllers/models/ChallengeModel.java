@@ -9,8 +9,6 @@ public class ChallengeModel {
     Long Id;
     String name;
     String description;
-    String bookIds;
-    String userIds;
     Long creatorId;
     Date deadlineDate;
     Date startedDate;
@@ -39,22 +37,6 @@ public class ChallengeModel {
         this.description = description;
     }
 
-    public String getBookIds() {
-        return bookIds;
-    }
-
-    public void setBookIds(String bookIds) {
-        this.bookIds = bookIds;
-    }
-
-    public String getUserIds() {
-        return userIds;
-    }
-
-    public void setUserIds(String userIds) {
-        this.userIds = userIds;
-    }
-
     public Long getCreatorId() {
         return creatorId;
     }
@@ -77,12 +59,10 @@ public class ChallengeModel {
 
     public static ChallengeModel toExternal(Challenge challenge){
         ChallengeModel challengeModel = new ChallengeModel();
-        challengeModel.setBookIds(challenge.getBookIds());
         challengeModel.setCreatorId(challenge.getCreatorId());
         challengeModel.setDescription(challenge.getDescription());
         challengeModel.setId(challenge.getId());
         challengeModel.setName(challenge.getName());
-        challengeModel.setUserIds(challenge.getUserIds());
         challengeModel.setDeadlineDate(challenge.getDeadlineDate());
         challengeModel.setStartedDate(challenge.getStartedDate());
         return challengeModel;
@@ -93,8 +73,6 @@ public class ChallengeModel {
                 .withId(challengeModel.getId())
                 .withName(challengeModel.getName())
                 .withDescription(challengeModel.getDescription())
-                .withBookIds(challengeModel.getBookIds())
-                .withUserIds(challengeModel.getUserIds())
                 .withCreatorId(challengeModel.getCreatorId())
                 .withDeadlineDate(challengeModel.getDeadlineDate())
                 .withStartedDate(challengeModel.getStartedDate())

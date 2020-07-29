@@ -18,12 +18,6 @@ public class Challenge {
     @Column(name="description")
     String description;
 
-    @Column(name="book_ids")
-    String bookIds;
-
-    @Column(name="user_ids")
-    String userIds;
-
     @Column(name="creator_id")
     Long creatorId;
 
@@ -39,8 +33,6 @@ public class Challenge {
         Long id;
         String name;
         String description;
-        String bookIds;
-        String userIds;
         Long creatorId;
         Date deadlineDate;
         Date startedDate;
@@ -59,16 +51,6 @@ public class Challenge {
 
         public ChallengeBuilder withDescription (String description){
             this.description =  description;
-            return this;
-        }
-
-        public ChallengeBuilder withBookIds(String bookIds){
-            this.bookIds = bookIds;
-            return this;
-        }
-
-        public ChallengeBuilder withUserIds(String userIds){
-            this.userIds = userIds;
             return this;
         }
 
@@ -97,7 +79,6 @@ public class Challenge {
     public Challenge(ChallengeBuilder challengeBuilder){
         this.id = challengeBuilder.id;
         this.name = challengeBuilder.name;
-        this.userIds = challengeBuilder.userIds;
         this.creatorId = challengeBuilder.creatorId;
         this.deadlineDate = challengeBuilder.deadlineDate;
         this.startedDate = challengeBuilder.startedDate;
@@ -113,14 +94,6 @@ public class Challenge {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getBookIds() {
-        return bookIds;
-    }
-
-    public String getUserIds() {
-        return userIds;
     }
 
     public Long getCreatorId() {
