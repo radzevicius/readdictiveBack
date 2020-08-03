@@ -42,18 +42,18 @@ CREATE  TABLE reviews(
 
 CREATE TABLE completed_books(
     id SERIAL PRIMARY KEY,
-    userId INTEGER,
-    bookId INTEGER
+    user_id INTEGER,
+    book_id INTEGER
 );
 
 CREATE TABLE challenge_books(
     id SERIAL PRIMARY KEY,
-    challengeId INTEGER,
-    bookId INTEGER
+    challenge_id INTEGER,
+    book_id INTEGER
 );
 
 CREATE TABLE challenge_users(
     id SERIAL PRIMARY KEY,
-    challengeId INTEGER,
-    userId INTEGER
+    challenge_id INTEGER,
+    user_id INTEGER
 );

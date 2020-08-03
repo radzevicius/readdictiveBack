@@ -28,6 +28,9 @@ public class User {
     @Temporal(value= TemporalType.TIMESTAMP)
     Date joinedDate;
 
+
+
+
     public static class UserBuilder{
 
         Long id;
