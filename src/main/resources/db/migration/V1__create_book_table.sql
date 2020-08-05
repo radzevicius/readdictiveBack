@@ -43,7 +43,10 @@ CREATE  TABLE reviews(
 CREATE TABLE completed_books(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    book_id INTEGER
+    book_id INTEGER,
+    completed_date TIMESTAMP,
+    CONSTRAINT book_id FOREIGN KEY(id) REFERENCES books(id),
+    CONSTRAINT user_id FOREIGN KEY(id) REFERENCES users(id)
 );
 
 CREATE TABLE challenge_books(
@@ -55,5 +58,8 @@ CREATE TABLE challenge_books(
 CREATE TABLE challenge_users(
     id SERIAL PRIMARY KEY,
     challenge_id INTEGER,
-    user_id INTEGER
+    user_id INTEGER,
+    completed_date TIMESTAMP
 );
+
+

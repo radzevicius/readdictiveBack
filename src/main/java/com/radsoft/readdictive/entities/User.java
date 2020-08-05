@@ -2,6 +2,7 @@ package com.radsoft.readdictive.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -107,5 +108,6 @@ public class User {
     public Date getJoinedDate() {
         return joinedDate;
     }
+
 
 }

@@ -3,7 +3,7 @@ package com.radsoft.readdictive.controllers.models;
 import com.radsoft.readdictive.entities.Book;
 
 public class BookModel {
-    private long id;
+    private Long id;
 
     private String title;
 

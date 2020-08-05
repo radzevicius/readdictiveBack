@@ -1,6 +1,8 @@
 package com.radsoft.readdictive.entities;
 
 import javax.persistence.*;
+import java.util.Set;
+
 
 @Entity
 @Table(name="books")
@@ -34,6 +36,7 @@ public class Book {
 
     @Column(name="genre")
     private String genre;
+
 
     public static class BookBuilder{
         Long id;

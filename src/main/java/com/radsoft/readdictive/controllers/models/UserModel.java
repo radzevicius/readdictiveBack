@@ -1,8 +1,10 @@
 package com.radsoft.readdictive.controllers.models;
 
+import com.radsoft.readdictive.entities.CompletedBooks;
 import com.radsoft.readdictive.entities.User;
 
 import java.util.Date;
+import java.util.Set;
 
 public class UserModel {
 
@@ -59,6 +61,7 @@ public class UserModel {
         this.joinedDate = joinedDate;
     }
 
+
     public static UserModel toExternal(User user){
         UserModel userModel = new UserModel();
         userModel.setId(user.getId());
@@ -78,6 +81,7 @@ public class UserModel {
                 .withJoinedDate(userModel.getJoinedDate())
                 .withDescription(userModel.getDescription())
                 .withAvatarImageUrl(userModel.getAvatarImageUrl())
+                .withJoinedDate(userModel.getJoinedDate())
                 .build();
     }
 
