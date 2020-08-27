@@ -39,7 +39,7 @@ public class CompletedBooksModel {
     public static CompletedBooks toInternal(CompletedBooksModel completedBooksModel){
         return new CompletedBooks.CompletedBooksBuilder()
                 .withId(completedBooksModel.getId())
-                .withBook(completedBooksModel.getBookId())
+                .withBook(co)
                 .withUser(completedBooksModel.getUserId())
                 .build();
     }
@@ -47,8 +47,8 @@ public class CompletedBooksModel {
     public static CompletedBooksModel toExternal(CompletedBooks completedBooks){
         CompletedBooksModel completedBooksModel = new CompletedBooksModel();
         completedBooksModel.setId(completedBooks.getId());
-        completedBooksModel.setBookId(completedBooks.getBookId());
-        completedBooksModel.setUserId(completedBooks.getUserId());
+        completedBooksModel.setBookId();
+        completedBooksModel.setUserId(completedBooks.);
         return completedBooksModel;
     }
 }

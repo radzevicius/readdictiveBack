@@ -45,8 +45,8 @@ CREATE TABLE completed_books(
     user_id INTEGER,
     book_id INTEGER,
     completed_date TIMESTAMP,
-    CONSTRAINT book_id FOREIGN KEY(id) REFERENCES books(id),
-    CONSTRAINT user_id FOREIGN KEY(id) REFERENCES users(id)
+    CONSTRAINT book_id FOREIGN KEY(book_id) REFERENCES books(id),
+    CONSTRAINT user_id FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
 CREATE TABLE challenge_books(

@@ -16,7 +16,7 @@ public class UserService {
     public void createUser(User newUser){ userRepository.save(newUser); }
 
     public User getUserById(Long id){
-        return userRepository.findById(id).get();}
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));}
 
     public List<User> getUsersByRole(String role){
         return userRepository.findByRole(role);

@@ -12,10 +12,14 @@ import java.util.List;
 
 @Service
 public class CompletedBooksService {
+
     @Autowired
     CompletedBooksRepository completedBooksRepository;
 
+    @Autowired
     UserService userService;
+
+    @Autowired
     BookService bookService;
 
     public void createCompletedBooks(CompletedBooks newCompletedBooks){
@@ -27,12 +31,9 @@ public class CompletedBooksService {
     }
 
     public CompletedBooks buildCompletedBooks(CompletedBooksIdModel completedBooksIdModel){
-        System.out.println(completedBooksIdModel.getUserId());
-        User user = userService.getUserById(completedBooksIdModel.getUserId());
-        Book book = bookService.getBookById(completedBooksIdModel.getBookId());
         return new CompletedBooks.CompletedBooksBuilder()
-                .withUser(user)
-                .withBook(book)
+                .withUser(completedBooksIdModel.getUserId())
+                .withBook(completedBooksIdModel.getBookId())
                 .build();
     }
 }

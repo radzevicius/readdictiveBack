@@ -17,7 +17,6 @@ public class BookService {
          bookRepository.save(newBook);
     }
 
-
     public Book getBookById(long id){
         return bookRepository.findById(id).get();
     }
