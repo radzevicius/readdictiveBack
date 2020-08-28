@@ -1,10 +1,7 @@
 package com.radsoft.readdictive.controllers.models;
 
 import com.radsoft.readdictive.entities.Book;
-import com.radsoft.readdictive.entities.CompletedBooks;
 import com.radsoft.readdictive.entities.User;
-import com.radsoft.readdictive.services.CompletedBooksService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class CompletedBooksModel {
 
@@ -38,9 +35,6 @@ public class CompletedBooksModel {
         this.user = user;
     }
 
-    public static CompletedBooksModel toExternal(CompletedBooksModel completedBooksModel){
-        return completedBooksModel;
-    }
 
 
 }

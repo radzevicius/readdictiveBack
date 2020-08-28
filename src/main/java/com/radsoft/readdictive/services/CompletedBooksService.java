@@ -32,12 +32,7 @@ public class CompletedBooksService {
         return completedBooksRepository.findAll();
     }
 
-    public CompletedBooksModel toExternal(CompletedBooks completedBooks){
-        CompletedBooksModel completedBooksModel = new CompletedBooksModel();
-        completedBooksModel.setId(completedBooks.getId());
-        completedBooksModel.setBook(bookService.getBookById(completedBooks.getBookId()));
-        completedBooksModel.setUser(userService.getUserById(completedBooks.getUserId()));
-        return completedBooksModel;
-    }
+
+    public CompletedBooks findCompletedBookById(Long id){ return completedBooksRepository.findById(id).get();}
 
 }

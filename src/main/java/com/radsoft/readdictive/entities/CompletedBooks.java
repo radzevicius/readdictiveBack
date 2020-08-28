@@ -10,15 +10,16 @@ import java.util.Date;
 public class CompletedBooks {
 
     @Id
-    @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     Long id;
 
 
-    @MapsId("user_id")
+
     @JoinColumn(name ="user_id")
     Long userId;
 
-    @MapsId("book_id")
+
     @JoinColumn(name ="book_id")
     Long bookId;
 
