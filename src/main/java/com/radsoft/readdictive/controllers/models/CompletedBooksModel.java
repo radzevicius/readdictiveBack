@@ -3,14 +3,16 @@ package com.radsoft.readdictive.controllers.models;
 import com.radsoft.readdictive.entities.Book;
 import com.radsoft.readdictive.entities.CompletedBooks;
 import com.radsoft.readdictive.entities.User;
+import com.radsoft.readdictive.services.CompletedBooksService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CompletedBooksModel {
 
     private Long id;
 
-    private User userId;
+    private User user;
 
-    private Book bookId;
+    private Book book;
 
     public  Long getId(){
         return id;
@@ -20,35 +22,25 @@ public class CompletedBooksModel {
         this.id = id;
     }
 
-    public Book getBookId() {
-        return bookId;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBookId(Book bookId) {
-        this.bookId = bookId;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public static CompletedBooks toInternal(CompletedBooksModel completedBooksModel){
-        return new CompletedBooks.CompletedBooksBuilder()
-                .withId(completedBooksModel.getId())
-                .withBook(co)
-                .withUser(completedBooksModel.getUserId())
-                .build();
-    }
-
-    public static CompletedBooksModel toExternal(CompletedBooks completedBooks){
-        CompletedBooksModel completedBooksModel = new CompletedBooksModel();
-        completedBooksModel.setId(completedBooks.getId());
-        completedBooksModel.setBookId();
-        completedBooksModel.setUserId(completedBooks.);
+    public static CompletedBooksModel toExternal(CompletedBooksModel completedBooksModel){
         return completedBooksModel;
     }
+
+
 }

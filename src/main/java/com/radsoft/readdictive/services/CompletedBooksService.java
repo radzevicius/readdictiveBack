@@ -1,10 +1,12 @@
 package com.radsoft.readdictive.services;
 
 import com.radsoft.readdictive.controllers.models.CompletedBooksIdModel;
+import com.radsoft.readdictive.controllers.models.CompletedBooksModel;
 import com.radsoft.readdictive.entities.Book;
 import com.radsoft.readdictive.entities.CompletedBooks;
 import com.radsoft.readdictive.entities.User;
 import com.radsoft.readdictive.repositories.CompletedBooksRepository;
+import com.radsoft.readdictive.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class CompletedBooksService {
     @Autowired
     BookService bookService;
 
-    public void createCompletedBooks(CompletedBooks newCompletedBooks){
+    public void storeCompletedBooks(CompletedBooks newCompletedBooks){
         completedBooksRepository.save(newCompletedBooks);
     }
 
@@ -30,10 +32,12 @@ public class CompletedBooksService {
         return completedBooksRepository.findAll();
     }
 
-    public CompletedBooks buildCompletedBooks(CompletedBooksIdModel completedBooksIdModel){
-        return new CompletedBooks.CompletedBooksBuilder()
-                .withUser(completedBooksIdModel.getUserId())
-                .withBook(completedBooksIdModel.getBookId())
-                .build();
+    public CompletedBooksModel toExternal(CompletedBooks completedBooks){
+        CompletedBooksModel completedBooksModel = new CompletedBooksModel();
+        completedBooksModel.setId(completedBooks.getId());
+        completedBooksModel.setBook(bookService.getBookById(completedBooks.getBookId()));
+        completedBooksModel.setUser(userService.getUserById(completedBooks.getUserId()));
+        return completedBooksModel;
     }
+
 }

@@ -36,12 +36,12 @@ public class CompletedBooks {
             return this;
         }
 
-        public CompletedBooksBuilder withUser(Long userId){
+        public CompletedBooksBuilder withUserId(Long userId){
             this.userId = userId;
             return this;
         }
 
-        public CompletedBooksBuilder withBook(Long bookId){
+        public CompletedBooksBuilder withBookId(Long bookId){
             this.bookId = bookId;
             return this;
         }

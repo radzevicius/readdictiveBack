@@ -17,8 +17,8 @@ public class CompletedBooksListModel {
         return completedBooks;
     }
 
-    public static CompletedBooksListModel toExternal(List<CompletedBooks> completedBooks){
-        return new CompletedBooksListModel(completedBooks.stream()
+    public static CompletedBooksListModel makeList(List<CompletedBooksModel> completedBooksModel){
+        return new CompletedBooksListModel(completedBooksModel.stream()
         .map(CompletedBooksModel::toExternal)
         .collect(Collectors.toList()));
     }
