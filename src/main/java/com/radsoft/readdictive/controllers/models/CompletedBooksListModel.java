@@ -1,31 +1,34 @@
 package com.radsoft.readdictive.controllers.models;
-
 import com.radsoft.readdictive.entities.CompletedBooks;
-import com.radsoft.readdictive.services.EntityMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import com.radsoft.readdictive.services.CompletedBooksMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CompletedBooksListModel {
 
+    private final CompletedBooksMapper completedBooksMapper;
 
-    private final EntityMapper entityMapper = new EntityMapper();
+    public CompletedBooksListModel(CompletedBooksMapper completedBooksMapper){
+        this.completedBooksMapper = completedBooksMapper;
+    }
 
-    private List<CompletedBooksModel> completedBooks;
+    private List<CompletedBooksModel> completedBooksModelList;
 
-    public CompletedBooksListModel(List<CompletedBooksModel> collect) {
 
+    public CompletedBooksListModel(CompletedBooksMapper completedBooksMapper, List<CompletedBooksModel> completedBooksModelList) {
+        this.completedBooksMapper = completedBooksMapper;
+        this.completedBooksModelList =completedBooksModelList;
     }
 
 
     public List<CompletedBooksModel> getCompletedBooks (){
-        return completedBooks;
+        return completedBooksModelList;
     }
 
-    public CompletedBooksListModel makeList(List<CompletedBooks> completedBooks){
-        return new CompletedBooksListModel(completedBooks.stream()
-        .map(entityMapper::toCompletedBooksModel)
+    public  CompletedBooksListModel makeList(List<CompletedBooks> completedBooks){
+        System.out.println();
+        return  new CompletedBooksListModel(completedBooksMapper, completedBooks.stream()
+        .map(completedBooksMapper::toCompletedBooksModel)
         .collect(Collectors.toList()));
     }
 }

@@ -1,6 +1,7 @@
 package com.radsoft.readdictive.controllers.models;
 
 import com.radsoft.readdictive.entities.Book;
+import com.radsoft.readdictive.entities.CompletedBookId;
 import com.radsoft.readdictive.entities.User;
 
 public class CompletedBooksModel {

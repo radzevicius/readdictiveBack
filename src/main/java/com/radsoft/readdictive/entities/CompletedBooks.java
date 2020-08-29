@@ -4,6 +4,7 @@ import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="completed_books")
@@ -13,8 +14,6 @@ public class CompletedBooks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     Long id;
-
-
 
     @JoinColumn(name ="user_id")
     Long userId;
@@ -69,5 +68,19 @@ public class CompletedBooks {
 
     public Long getBookId(){
         return bookId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CompletedBooks that = (CompletedBooks) o;
+        return userId.equals(that.userId) &&
+                bookId.equals(that.bookId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, bookId);
     }
 }
