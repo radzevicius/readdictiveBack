@@ -6,29 +6,15 @@ import java.util.stream.Collectors;
 
 public class CompletedBooksListModel {
 
-    private final CompletedBooksMapper completedBooksMapper;
-
-    public CompletedBooksListModel(CompletedBooksMapper completedBooksMapper){
-        this.completedBooksMapper = completedBooksMapper;
-    }
-
     private List<CompletedBooksModel> completedBooksModelList;
 
-
-    public CompletedBooksListModel(CompletedBooksMapper completedBooksMapper, List<CompletedBooksModel> completedBooksModelList) {
-        this.completedBooksMapper = completedBooksMapper;
+    public CompletedBooksListModel(List<CompletedBooksModel> completedBooksModelList) {
         this.completedBooksModelList =completedBooksModelList;
     }
-
 
     public List<CompletedBooksModel> getCompletedBooks (){
         return completedBooksModelList;
     }
 
-    public  CompletedBooksListModel makeList(List<CompletedBooks> completedBooks){
-        System.out.println();
-        return  new CompletedBooksListModel(completedBooksMapper, completedBooks.stream()
-        .map(completedBooksMapper::toCompletedBooksModel)
-        .collect(Collectors.toList()));
-    }
+
 }
