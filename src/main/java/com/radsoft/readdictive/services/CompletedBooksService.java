@@ -32,8 +32,8 @@ public class CompletedBooksService {
             } else {
                 completedBooksRepository.save(newCompletedBooks);
             }
-        }catch(ExistsException e){
-            System.out.println(e.getMessage());
+        }catch(ExistsException exception){
+            System.out.println(exception.getMessage());
         }
     }
 

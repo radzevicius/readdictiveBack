@@ -52,14 +52,18 @@ CREATE TABLE completed_books(
 CREATE TABLE challenge_books(
     id SERIAL PRIMARY KEY,
     challenge_id INTEGER,
-    book_id INTEGER
+    book_id INTEGER,
+    CONSTRAINT challenge_id FOREIGN KEY(challenge_id) REFERENCES challenges(id),
+    CONSTRAINT book_id FOREIGN KEY(book_id) REFERENCES books(id)
 );
 
 CREATE TABLE challenge_users(
     id SERIAL PRIMARY KEY,
     challenge_id INTEGER,
     user_id INTEGER,
-    completed_date TIMESTAMP
+    completed_date TIMESTAMP,
+    CONSTRAINT challenge_id FOREIGN KEY(challenge_id) REFERENCES challenges(id),
+    CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
