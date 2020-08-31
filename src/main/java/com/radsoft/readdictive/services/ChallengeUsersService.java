@@ -14,7 +14,7 @@ import java.util.List;
 public class ChallengeUsersService {
 
     @Autowired
-    ChallengeUsersRepository challengeUsersRepository;
+    private ChallengeUsersRepository challengeUsersRepository;
 
     public void storeChallengeUsers(ChallengeUsers newChallengeUsers){
         try {

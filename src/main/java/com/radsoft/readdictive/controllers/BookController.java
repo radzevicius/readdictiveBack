@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
     @GetMapping("/id/{id}")
     public BookModel searchBookId(@PathVariable("id") Long id) throws Exception{

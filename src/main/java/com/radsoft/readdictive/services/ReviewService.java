@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ReviewService {
 
     @Autowired
-    ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository;
 
     public void createReview(Review review){
         reviewRepository.save(review);

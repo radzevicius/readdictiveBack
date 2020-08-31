@@ -11,7 +11,7 @@ import java.util.List;
 public class ChallengeService {
 
     @Autowired
-    ChallengeRepository challengeRepository;
+    private ChallengeRepository challengeRepository;
 
     public void createChallenge(Challenge challenge){
         challengeRepository.save(challenge);

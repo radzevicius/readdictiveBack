@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class ReviewController {
 
     @Autowired
-    ReviewService reviewService;
+    private ReviewService reviewService;
 
     @PostMapping("/create")
     public void createReview(@RequestBody ReviewModel newReview){

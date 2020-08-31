@@ -17,13 +17,13 @@ import java.util.List;
 public class CompletedBooksService {
 
     @Autowired
-    CompletedBooksRepository completedBooksRepository;
+    private CompletedBooksRepository completedBooksRepository;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
     public void storeCompletedBooks(CompletedBooks newCompletedBooks){
         try {

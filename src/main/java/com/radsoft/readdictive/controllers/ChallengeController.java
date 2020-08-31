@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class ChallengeController {
 
     @Autowired
-    ChallengeService challengeService;
+    private ChallengeService challengeService;
 
     @PostMapping("/create")
     public void createChallenge(@RequestBody ChallengeModel challengeModel){

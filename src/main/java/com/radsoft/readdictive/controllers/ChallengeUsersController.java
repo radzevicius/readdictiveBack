@@ -18,10 +18,10 @@ import java.util.List;
 public class ChallengeUsersController {
 
     @Autowired
-    ChallengeUsersMapper challengeUsersMapper;
+    private ChallengeUsersMapper challengeUsersMapper;
 
     @Autowired
-    ChallengeUsersService challengeUsersService;
+    private ChallengeUsersService challengeUsersService;
 
     @PostMapping("/create")
     public void createChallengeUsers(@RequestBody ChallengeUsersIdModel challengeUsersIdModel){

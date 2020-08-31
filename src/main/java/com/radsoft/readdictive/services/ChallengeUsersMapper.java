@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 public class ChallengeUsersMapper {
 
     @Autowired
-    ChallengeService challengeService;
+    private ChallengeService challengeService;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     public ChallengeUsersModel toChallengeUsersModel(ChallengeUsers challengeUsers){
         ChallengeUsersModel challengeUsersModel = new ChallengeUsersModel();

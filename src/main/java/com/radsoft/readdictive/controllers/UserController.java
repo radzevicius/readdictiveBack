@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @PostMapping("/create")
     public void createUser(@RequestBody UserModel userModel){

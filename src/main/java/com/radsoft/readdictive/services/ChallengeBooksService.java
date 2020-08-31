@@ -12,13 +12,13 @@ import java.util.List;
 public class ChallengeBooksService {
 
     @Autowired
-    ChallengeBooksRepository challengeBooksRepository;
+    private ChallengeBooksRepository challengeBooksRepository;
 
     @Autowired
-    ChallengeService challengeService;
+    private ChallengeService challengeService;
 
     @Autowired
-    BookService bookService;
+    private BookService bookService;
 
     public void storeChallengeBooks(ChallengeBooks challengeBooks){
         try {

@@ -17,10 +17,10 @@ import java.util.List;
 public class CompletedBooksController {
 
     @Autowired
-    CompletedBooksService completedBooksService;
+    private CompletedBooksService completedBooksService;
 
     @Autowired
-    CompletedBooksMapper completedBooksMapper;
+    private CompletedBooksMapper completedBooksMapper;
 
 
     @PostMapping("/create")

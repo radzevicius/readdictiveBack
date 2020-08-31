@@ -9,17 +9,17 @@ public class BookListModel {
 
     private List<BookModel> books;
 
-    public BookListModel(List<BookModel> books){
-        this.books =books;
+    public BookListModel(List<BookModel> books) {
+        this.books = books;
     }
 
-    public  List<BookModel> getBookListModel(){
+    public List<BookModel> getBookListModel() {
         return books;
     }
 
-    public static BookListModel toExternal(List<Book> books){
+    public static BookListModel toExternal(List<Book> books) {
         return new BookListModel(books.stream()
-            .map(BookModel::toExternal)
-            .collect(Collectors.toList()));
+                .map(BookModel::toExternal)
+                .collect(Collectors.toList()));
     }
 }

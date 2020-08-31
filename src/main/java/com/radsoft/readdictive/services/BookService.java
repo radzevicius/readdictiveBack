@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class BookService {
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
 
     public  void createBook(Book newBook){

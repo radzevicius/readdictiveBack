@@ -19,10 +19,10 @@ import java.util.List;
 public class ChallengeBooksController {
 
     @Autowired
-    ChallengeBooksMapper challengeBooksMapper;
+    private ChallengeBooksMapper challengeBooksMapper;
 
     @Autowired
-    ChallengeBooksService challengeBooksService;
+    private ChallengeBooksService challengeBooksService;
 
     @PostMapping("/create")
     public void createChallengeBook(@RequestBody ChallengeBooksIdModel challengeBooksIdModel){
